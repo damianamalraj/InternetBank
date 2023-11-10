@@ -13,6 +13,6 @@ namespace InternetBank.Models
         public string Name { get; set; }
         public double Balance { get; set; }
 
-        public virtual User User { get; set; }
-    }
+        public virtual User { get; set; }
+}
 }
