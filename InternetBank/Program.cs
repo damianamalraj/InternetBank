@@ -1,4 +1,8 @@
-﻿namespace InternetBank
+﻿using InternetBank.Data;
+using InternetBank.Models;
+using InternetBank.Utilities;
+
+namespace InternetBank
 {
     internal class Program
     {
@@ -24,8 +28,23 @@
                 AdminFunctions.DoAdminTasks();
                 return;
             }
+            using (BankContext context = new BankContext())
+            {
+
+                var user = context.Users
+                            .Where(x => x.Name == userName)
+                            .Where(x => x.Pin == pin);
+
+                if (user != null)
+                {
+
+                    UserFunctions.DoUserTasks(userName);
+                }
+
+            }
 
             // Code here for user login *****
+
         }
     }
 }

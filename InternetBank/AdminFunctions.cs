@@ -56,7 +56,6 @@ namespace InternetBank
             Random random = new Random();
             string pin = random.Next(1000, 10000).ToString();
 
-
             User newUser = new User()
             {
                 Name = username,
@@ -73,7 +72,6 @@ namespace InternetBank
                 Console.WriteLine($"Failed to create user with username {username}");
             }
         }
-
 
     }
 }
