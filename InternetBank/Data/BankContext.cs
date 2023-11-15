@@ -16,7 +16,8 @@ namespace InternetBank.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Fill in connection string here!!
-            optionsBuilder.UseSqlServer();
+            optionsBuilder.UseSqlServer("Server=localhost,1433;Database=internetbank;User Id=sa;Password=Admin123;TrustServerCertificate=true");
+
         }
     }
 }

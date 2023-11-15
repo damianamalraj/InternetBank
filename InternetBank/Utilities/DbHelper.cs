@@ -30,5 +30,21 @@ namespace InternetBank.Utilities
             }
             return true;
         }
+
+        public static bool AddAccount(BankContext context, Account account)
+        {
+            context.Accounts.Add(account);
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error adding user: {e}");
+                return false;
+            }
+            return true;
+        }
     }
 }

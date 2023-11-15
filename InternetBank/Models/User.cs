@@ -12,6 +12,6 @@ namespace InternetBank.Models
         public string Name { get; set; }
         public string Pin { get; set; }
 
-        public virtual ICollection<Account> { get; set; }
-}
+        public virtual ICollection<Account> Account { get; set; }
+    }
 }
