@@ -53,15 +53,14 @@ namespace InternetBank
         private static void CreateAccount(BankContext context, User user)
         {
             Console.WriteLine("Create Account");
-            Console.Write("Enter Account name:");
+            Console.Write("Enter Account name: ");
             string accountName = Console.ReadLine();
 
             Account newAccount = new Account()
             {
-                Id = 9823,
-                UserId = 1234,
-                Name = "jhlkhaslkdjhf",
-                Balance = 0.4,
+                UserId = user.Id,
+                Name = accountName,
+                Balance = 0,
             };
 
             bool success = DbHelper.AddAccount(context, newAccount);

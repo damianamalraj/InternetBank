@@ -8,13 +8,14 @@ namespace InternetBank
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Console.WriteLine("Welcome to Bank!");
             Console.WriteLine("Please log in");
 
-            Console.Write("Enter user name:");
+            Console.Write("Enter user name: ");
             string userName = Console.ReadLine();
 
-            Console.Write("Enter pin code:");
+            Console.Write("Enter pin code: ");
             string pin = Console.ReadLine();
 
             if (userName == "admin")

@@ -15,7 +15,7 @@ namespace InternetBank
         {
             using (BankContext context = new BankContext())
             {
-                Console.WriteLine("Current users in system:");
+                Console.WriteLine("Current users in system: ");
                 List<User> users = DbHelper.GetAllUsers(context);
 
                 foreach (User user in users)
@@ -29,7 +29,7 @@ namespace InternetBank
 
                 while (true)
                 {
-                    Console.Write("Enter command:");
+                    Console.Write("Enter command: ");
                     string command = Console.ReadLine();
 
                     switch (command.ToLower())
@@ -50,7 +50,7 @@ namespace InternetBank
         private static void CreateUser(BankContext context)
         {
             Console.WriteLine("Create user");
-            Console.Write("Enter user name:");
+            Console.Write("Enter user name: ");
             string username = Console.ReadLine();
 
             Random random = new Random();
