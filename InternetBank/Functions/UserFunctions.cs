@@ -1,4 +1,3 @@
-
 using InternetBank.Data;
 using InternetBank.Models;
 using InternetBank.Utilities;
@@ -16,7 +15,6 @@ namespace InternetBank
         {
             using (BankContext context = new BankContext())
             {
-
                 var user = context.Users
                             .Where(x => x.Name == userName)
                             .FirstOrDefault();
@@ -29,7 +27,7 @@ namespace InternetBank
                     switch (command.ToLower())
                     {
                         case "1":
-
+                            ShowAccountsBalance(context, user);
                             break;
                         case "2":
                             return;
@@ -47,6 +45,17 @@ namespace InternetBank
                             break;
                     }
                 }
+            }
+        }
+
+        private static void ShowAccountsBalance(BankContext context, User user)
+        {
+            var accounts = context.Accounts
+                            .Where(a => a.UserId == user.Id);
+
+            foreach (var account in accounts)
+            {
+                Console.WriteLine($"{account.Name} -> [{account.Balance}]");
             }
         }
 
