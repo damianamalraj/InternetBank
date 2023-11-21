@@ -40,7 +40,7 @@ Du ska skapa en bankomat, eller kanske mer av en enkel internetbank! Det kommer 
 - Denna funktion ska köras när användaren navigerat in till alternativet "Se dina konton och saldo"
 - Användaren ska få en utskrift av de olika konton som användaren har och hur mycket pengar det finns på dessa
 - Konton ska kunna ha både kronor och ören
-- Alla användare ska ha olika antal konton och alla ska ha minst ett konto
+- <mark style="background-color: #FFFF00">Alla användare ska ha olika antal konton och alla ska ha minst ett konto</mark>
 - Varje konto ska ha ett namn ex. "lönekonto" eller "sparkonto"
 
 ### **Överföring mellan konton**
@@ -49,7 +49,7 @@ Du ska skapa en bankomat, eller kanske mer av en enkel internetbank! Det kommer 
 - Användaren ska kunna välja ett konto att ta pengar från, ett konto att flytta pengarna till och sen en summa som ska flyttas mellan dessa
 - Denna summa ska sedan flyttas mellan dessa konton och efteråt ska användaren få se vilken summa som finns på dessa två konton som påverkades
 - Det måste finnas täckning på konton man vill flytta pengar från för beloppet man vill flytta
-- Det räcker att man kan överföra mellan sina egna konton här
+- <mark style="background-color: #FFFF00">Det räcker att man kan överföra mellan sina egna konton här</mark>
 
 ### **Ta ut pengar**
 
@@ -82,7 +82,7 @@ _Om du känner att du hinner och vill göra mer kommer här förslag på ytterli
 
 ### **Övergripande flödesschema för programmet för vanlig användare**
 
-![bank_flowchart.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/76ff052e-5519-4c95-9c8a-d50fbda370ef/48ec3bca-fc8f-43ec-bdec-2f17553e9dfe/bank_flowchart.png)
+![bank_flowchart](bank_flowchart.png)
 
 **👉  G-kriterier**
 
@@ -99,7 +99,7 @@ _Om du känner att du hinner och vill göra mer kommer här förslag på ytterli
 - Lägg till så att användare kan flytta pengar sinsemellan, dvs mellan olika användare
 - Se till att du har bra commit-meddelanden i din Git så det går att förstå vad du lagt till i varje version.
 - Lägga in grundläggande innehåll i den Readme-fil som finns i erat Git-repository på Github så att någon som ser projektet för första gången får en kort introduktion till strukturen i koden.
-- Skriv en **********\*\***********individuell**********\*\*********** (en per person) reflektion/ett resonemang där du motiverar för hur du valt att bygga upp ditt program. Du ska alltså resonera kring den lösning du valt, vilka andra du övervägt och kritiskt granska ditt val och eventuellt motivera för bättre lösningar som du ser men inte gjort. Var noga med att gå igenom den tekniska lösning ni valt Inlämningen för reflektionen är separat och individuell.
+- Skriv en \***\*\*\*\*\***\*\*\***\*\*\*\*\***individuell\***\*\*\*\*\***\*\*\***\*\*\*\*\*** (en per person) reflektion/ett resonemang där du motiverar för hur du valt att bygga upp ditt program. Du ska alltså resonera kring den lösning du valt, vilka andra du övervägt och kritiskt granska ditt val och eventuellt motivera för bättre lösningar som du ser men inte gjort. Var noga med att gå igenom den tekniska lösning ni valt Inlämningen för reflektionen är separat och individuell.
 
 ## Din inlämning
 
