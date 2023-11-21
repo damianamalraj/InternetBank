@@ -2013,24 +2013,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/damianamalraj/.nuget/packages/": {}
+    "C:\\Users\\Stina\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/damianamalraj/Documents/CHAS/2. Programmering med C# och .NET/InternetBank/InternetBank/InternetBank.csproj",
+      "projectUniqueName": "C:\\Users\\Stina\\source\\repos\\InternetBank\\InternetBank\\InternetBank\\InternetBank.csproj",
       "projectName": "InternetBank",
-      "projectPath": "/Users/damianamalraj/Documents/CHAS/2. Programmering med C# och .NET/InternetBank/InternetBank/InternetBank.csproj",
-      "packagesPath": "/Users/damianamalraj/.nuget/packages/",
-      "outputPath": "/Users/damianamalraj/Documents/CHAS/2. Programmering med C# och .NET/InternetBank/InternetBank/obj/",
+      "projectPath": "C:\\Users\\Stina\\source\\repos\\InternetBank\\InternetBank\\InternetBank\\InternetBank.csproj",
+      "packagesPath": "C:\\Users\\Stina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Stina\\source\\repos\\InternetBank\\InternetBank\\InternetBank\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/damianamalraj/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Stina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2075,26 +2083,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[6.0.15, 6.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
