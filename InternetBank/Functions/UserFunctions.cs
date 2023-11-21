@@ -21,7 +21,7 @@ namespace InternetBank
 
                 while (user != null)
                 {
-                    Console.WriteLine("1. Se dina konton och saldo\n2.Överföring mellan konton\n3.Ta ut pengar\n4.Sätt in pengar\n5.Öppna nytt konto\n6.Logga ut");
+                    Console.WriteLine("-----------------------------------\n1. View accounts and balance\n2. Transfer funds between accounts\n3. Withdraw\n4. Depositn\n5. Open new account\n6. Sign out\n-----------------------------------");
                     string? command = Console.ReadLine();
 
                     switch (command.ToLower())
@@ -91,77 +91,79 @@ namespace InternetBank
         //Method for gathering info from user to create a transaction between accounts. /Stina Hedman
         private static void TransferFunds(BankContext context, User user)
         {
-
-            //foreach (Account a in context.Accounts)
-            //{
-            //    if(a.)
-            //    userAccs.Add(a);
-            //}
-            //var accounts = from a in context.Accounts
-            //                select a;
-
             var accounts = context.Accounts
                             .Where(x => x.User.Id == user.Id);
 
-            foreach (Account a in accounts)
-            {
+            //foreach (Account a in accounts)
+            //{
                 
-                Console.WriteLine($"{a.Id}");
-            }
+            //    Console.WriteLine($"{a.Id}");
+            //}
 
             ShowAccountsBalance(context, user);
 
-
-            Console.WriteLine("Ange konto att föra över pengar från");
+            Console.WriteLine("Enter account number that you wish to transfer money from: ");
             string input = Console.ReadLine();
             bool validAccountID = false;
-            int fromAccID;
+            int fromAccID = -1;
             Account fromAccount = new Account();
 
             //checks if userinput can be parsed to int and if it's connected to an excisting account.
             while (!Int32.TryParse(input, out fromAccID) || !validAccountID)
             {
-
-                Console.WriteLine("Ange ett giltigt konto id.");
-
-                foreach (Account ac in accounts)
+                if(fromAccID == -1)
                 {
-                    if (ac.Id == fromAccID)
+                    Console.WriteLine("Enter a valid account number.");
+                }
+
+                else
+                {
+                    foreach (Account ac in accounts)
                     {
-                        fromAccount = ac;
-                        validAccountID = true;
+                        if (ac.Id == fromAccID)
+                        {
+                            fromAccount = ac;
+                            validAccountID = true;
+                        }
+                    }
+
+                    if (!validAccountID)
+                    {
+                        Console.WriteLine("You are not the owner of this account.");
                     }
                 }
 
-                if (validAccountID == false)
+                if (fromAccID == -1 || !validAccountID)
                 {
-                    Console.WriteLine("detta id tillhör inte ett av dina konton");
+                    input = Console.ReadLine();
                 }
-
-                input = Console.ReadLine();
             }
 
-            //ask for amount to be transfered and check input
-            Console.WriteLine("Ange summa som ska överföras: ");
+            //ask usert to input amount to be transfered and check input
+            Console.WriteLine("Amount to transfer: ");
             input = Console.ReadLine();
             double amount;
             while (!double.TryParse(input, out amount) || fromAccount.Balance < amount)
             {
-                Console.WriteLine("Något gick fel. Ange ett giltigt antal.");
+                Console.WriteLine("Something went wrong. Enter a valdid amount.");
                 if (fromAccount.Balance < amount)
                 {
-                    Console.WriteLine("kontot har inte täckning för detta belopp.");
+                    Console.WriteLine("Insufficient funds. you're too broke for this transaction");
                 }
                 input = Console.ReadLine();
             }
 
-            //ask for recieving account id and check that it's valid
-            int toAccID;
-            Console.WriteLine("Ange kontonummer för det konto du vill föra över pengar till:");
+            //Ask user to input recieving account id and check that it's valid
+            int toAccID = -1;
+            Console.WriteLine("Enter account number of the recieving account:");
             input = Console.ReadLine();
             validAccountID = false;
             while (!Int32.TryParse(input, out toAccID) || !validAccountID)
             {
+                if (toAccID == -1)
+                {
+                    Console.WriteLine("Enter a valid account number:");
+                }
 
                 var allAccounts = from a in context.Accounts
                                     select a;
@@ -173,48 +175,33 @@ namespace InternetBank
                         validAccountID = true;
                     }
                 }
-                
+
+                if (!validAccountID)
+                {
+                    Console.WriteLine("Account does not exist");
+                }
+
+                if (fromAccID == -1 || !validAccountID)
+                {
+                    input = Console.ReadLine();
+                }
+
             }
 
             //Asks user to input a message for the transaction and checks lenght of message
-            Console.WriteLine("Ange meddelande (max 20 tecken)");
+            Console.WriteLine("Enter a message (20 characters at most)");
             string message = Console.ReadLine();
 
             while (message.Count() > 20)
             {
-                Console.WriteLine("Ange ett kortare meddelande, max 20 tecken");
+                Console.WriteLine("Message too long, maximum of 20 characters allowed");
                 message = Console.ReadLine();
             }
-            Transaction transferBetweenAccounts = new Transaction(fromAccID, toAccID, amount, message);
+            //Transaction transferBetweenAccounts = new Transaction(fromAccID, toAccID, amount, message);
         }
 
+        //Method for withdrawing money /Stina Hedman
         public static void WithdrawMoney(BankContext context, User user)
-        { //let user choose account to withdraw from
-            List<Account> userAccs = new List<Account>();
-            
-            
-                var accounts = from a in context.Accounts
-                               select a;
-
-                foreach (Account ac in accounts)
-                {
-                    if (ac.User.Id == user.Id)
-                    {
-                        userAccs.Add(ac);
-                    }
-                }
-            
-
-            Console.WriteLine("Ange konto du vill sätta ta ut pengar från:");
-            for (int i = 0; i > userAccs.Count - 1; i++)
-            {
-
-            }
-
-            //check if avaliable funds on account
-        }
-
-        public static void DepositMoney(BankContext context, User user)
         {
 
             var accounts = context.Accounts
@@ -222,7 +209,7 @@ namespace InternetBank
 
             ShowAccountsBalance(context, user);
 
-            Console.WriteLine("Ange konto id att föra över pengar till");
+            Console.WriteLine("Enter the account number that you wish to withdraw from:");
             string input = Console.ReadLine();
             bool validAccountID = false;
             int fromAccID;
@@ -231,38 +218,112 @@ namespace InternetBank
             //checks if userinput can be parsed to int and if it's connected to an excisting account.
             while (!Int32.TryParse(input, out fromAccID) || !validAccountID)
             {
-
-                Console.WriteLine("Ange ett giltigt konto id.");
-
-                foreach (Account ac in accounts)
+                if (fromAccID == -1)
                 {
-                    if (ac.Id == fromAccID)
+                    Console.WriteLine("Enter a valid account number:");
+                }
+
+                else
+                {
+                    foreach (Account ac in accounts)
                     {
-                        fromAccount = ac;
-                        validAccountID = true;
+                        if (ac.Id == fromAccID)
+                        {
+                            fromAccount = ac;
+                            validAccountID = true;
+                        }
+                    }
+
+                    if (!validAccountID)
+                    {
+                        Console.WriteLine("You are not the owner of this account.");
                     }
                 }
 
-                if (validAccountID == false)
+                if (fromAccID == -1 || !validAccountID)
                 {
-                    Console.WriteLine("detta id tillhör inte ett av dina konton");
+                    input = Console.ReadLine();
                 }
+            }
 
+
+            // Ask for amount to be withdrawn and check input
+            Console.WriteLine("Enter amount to withdraw: ");
+            input = Console.ReadLine();
+            double amount;
+            while (!double.TryParse(input, out amount) || amount > fromAccount.Balance)
+            {
+                if (amount > fromAccount.Balance)
+                {
+                    Console.WriteLine("Insufficient funds.");
+                }
+                Console.WriteLine("Please enter amount again.");
                 input = Console.ReadLine();
             }
 
-            //ask for amount to be transfered and check input
-            Console.WriteLine("Ange summa för isättning: ");
+            fromAccount.Balance -= amount;
+            context.SaveChanges();
+
+        }
+
+        //Method for depositing money to account /Stina Hedman
+        public static void DepositMoney(BankContext context, User user)
+        {
+
+            var accounts = context.Accounts
+                .Where(x => x.User.Id == user.Id);
+
+            ShowAccountsBalance(context, user);
+
+            Console.WriteLine("Enter the account number of the account you want to deposit to: ");
+            string input = Console.ReadLine();
+            bool validAccountID = false;
+            int fromAccID;
+            Account fromAccount = new Account();
+
+            //checks if userinput can be parsed to int and if it's connected to an excisting account.
+            while (!Int32.TryParse(input, out fromAccID) || !validAccountID)
+            {
+                if (fromAccID == -1)
+                {
+                    Console.WriteLine("Enter a valid account number.");
+                }
+
+                //check if the user is the owner of the account
+                else
+                {
+                    foreach (Account ac in accounts)
+                    {
+                        if (ac.Id == fromAccID)
+                        {
+                            fromAccount = ac;
+                            validAccountID = true;
+                        }
+                    }
+
+                    if (!validAccountID)
+                    {
+                        Console.WriteLine("You are not the owner of this account. ");
+                    }
+                }
+
+                if (fromAccID == -1 || !validAccountID)
+                {
+                    input = Console.ReadLine();
+                }
+            }
+
+            //Ask for amount to be transfered and check input
+            Console.WriteLine("Enter amount to deposit: ");
             input = Console.ReadLine();
             double amount;
             while (!double.TryParse(input, out amount))
             {
-                Console.WriteLine("Något gick fel. Ange ett giltigt antal.");
+                Console.WriteLine("Something went wrong. Enter a valid amount.");
                 input = Console.ReadLine();
             }
-
-            Transaction
-
+            fromAccount.Balance += amount;
+            context.SaveChanges();
         }
 
     }
