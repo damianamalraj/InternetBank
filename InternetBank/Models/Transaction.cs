@@ -9,63 +9,19 @@ using System.Threading.Tasks;
 
 namespace InternetBank.Models
 {
-    class Transaction
-    {
-        private static int idCounter = 1;
-        public Transaction(int UserAccountID, int recievingAccount, double transferAmount, string transactionMessage)
-        {
+    //class Transaction
+    //{
+    //    private static int idCounter = 1;
+    //    public Transaction()
+    //    {
 
-            int fromAccount = UserAccountID;
-            int toAccount = recievingAccount;
-            double amount = transferAmount;
-            int transactionID = ++idCounter;
-            string message = transactionMessage;
-            bool successfull = false;
+    //        public int fromAccount { get; set; }
+    //    public int toAccount { get; set; }
+    //    public double amount { get; set; }
 
-            void TransferMoney()
-            {
-                bool moneySent = false;
-                bool moneyRecieved = false;
-                using (BankContext context = new BankContext())
-                {
-                    var allAccounts = from a in context.Accounts
-                                      select a;
-
-                    foreach (Account ac in allAccounts)
-                    {
-                        if (ac.Id == UserAccountID)
-                        {
-                            ac.Balance -= amount;
-                            moneySent = true;
-                        }
-                        else if (ac.Id == recievingAccount)
-                        {
-                            ac.Balance += amount;
-                            moneyRecieved = true;
-                        }
-                    }
-
-                    if (moneySent && moneyRecieved)
-                    {
-                        Console.WriteLine("Överföring utförd.");
-                        //Lägg till för att spara transaktion i tabell
-                        //context.Transactions.add(this.Transaction); 
-                        context.SaveChanges();
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("Överföring avbruten. Försök igen.");
-                    }
-
-
-                }
-            }
-
-            void Deposit()
-            {
-
-            }
-        }
-    }
+    //    private int transactionID = ++idCounter;
+    //    public string message { get; set; }
+    //    public bool successfull {  get; set; }
+    //    }
+    //}
 }
