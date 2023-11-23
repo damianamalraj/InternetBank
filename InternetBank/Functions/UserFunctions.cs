@@ -21,27 +21,36 @@ namespace InternetBank
 
                 while (user != null)
                 {
-                    Console.WriteLine("-----------------------------------\n1. View accounts and balance\n2. Transfer funds between accounts\n3. Withdraw\n4. Depositn\n5. Open new account\n6. Sign out\n-----------------------------------");
+                    Console.WriteLine("-----------------------------------\n1. View accounts and balance\n2. Transfer funds between accounts\n3. Withdraw\n4. Deposit\n5. Open new account\n6. Sign out\n-----------------------------------");
                     string? command = Console.ReadLine();
+                    
 
                     switch (command.ToLower())
                     {
                         case "1":
+                            Console.Clear();
                             ShowAccountsBalance(context, user);
                             break;
+
                         case "2":
+                            Console.Clear();
                             TransferFunds(context, user);
                             break;
+
                         case "3":
+                            Console.Clear();
                             WithdrawMoney(context, user);
                             break;
                         case "4":
+                            Console.Clear();
                             DepositMoney(context, user);
                             break; ;
                         case "5":
+                            Console.Clear();
                             CreateAccount(context, user);
                             break;
                         case "6":
+                            Console.Clear();
                             return;
                         default:
                             Console.WriteLine($"Unknown command: {command}");
@@ -50,7 +59,8 @@ namespace InternetBank
                 }
             }
         }
-
+        
+        //Method for showing users accountbalance
         private static void ShowAccountsBalance(BankContext context, User user)
         {
             var accounts = context.Accounts
@@ -58,7 +68,7 @@ namespace InternetBank
 
             foreach (var account in accounts)
             {
-                Console.WriteLine($"{account.Id} {account.Name} -> [{account.Balance}]");
+                Console.WriteLine($"Accountnumber : {account.Id} | AccountName :  {account.Name} | Balance : {account.Balance}");
             }
         }
 
@@ -88,17 +98,11 @@ namespace InternetBank
 
         }
 
-        //Method for gathering info from user to create a transaction between accounts. /Stina Hedman
+        //Method for gathering info from user to create a transaction between accounts.
         private static void TransferFunds(BankContext context, User user)
         {
             var accounts = context.Accounts
                             .Where(x => x.User.Id == user.Id);
-
-            //foreach (Account a in accounts)
-            //{
-                
-            //    Console.WriteLine($"{a.Id}");
-            //}
 
             ShowAccountsBalance(context, user);
 
@@ -143,9 +147,10 @@ namespace InternetBank
             Console.WriteLine("Amount to transfer: ");
             input = Console.ReadLine();
             double amount;
+
             while (!double.TryParse(input, out amount) || fromAccount.Balance < amount)
             {
-                Console.WriteLine("Something went wrong. Enter a valdid amount.");
+                Console.WriteLine("Something went wrong. Enter a valid amount.");
                 if (fromAccount.Balance < amount)
                 {
                     Console.WriteLine("Insufficient funds. you're too broke for this transaction");
@@ -155,6 +160,7 @@ namespace InternetBank
 
             //Ask user to input recieving account id and check that it's valid
             int toAccID = -1;
+            Account toAccount = new Account();
             Console.WriteLine("Enter account number of the recieving account:");
             input = Console.ReadLine();
             validAccountID = false;
@@ -172,6 +178,7 @@ namespace InternetBank
                 {
                     if (ac.Id == toAccID)
                     {
+                        toAccount = ac;
                         validAccountID = true;
                     }
                 }
@@ -197,6 +204,10 @@ namespace InternetBank
                 Console.WriteLine("Message too long, maximum of 20 characters allowed");
                 message = Console.ReadLine();
             }
+
+            fromAccount.Balance -= amount;
+            toAccount.Balance += amount;
+            context.SaveChanges();
             //Transaction transferBetweenAccounts = new Transaction(fromAccID, toAccID, amount, message);
         }
 
