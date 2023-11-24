@@ -13,38 +13,71 @@ namespace InternetBank
     {
         public static void DoAdminTasks()
         {
-            using (BankContext context = new BankContext())
+            int loginAttempts = 0;
+            const int maxLoginAttempts = 3;
+            const int timeoutSeconds = 20;
+
+            do
             {
-                Console.WriteLine("Current users in system: ");
-                List<User> users = DbHelper.GetAllUsers(context);
+                Console.Write("Enter admin password: ");
+                string password = Console.ReadLine();
 
-                foreach (User user in users)
+                if (password == "1234")
                 {
-                    Console.WriteLine($"{user.Name}");
-                }
-
-                Console.WriteLine($"Total number of users = {users.Count()}");
-                Console.WriteLine("c to create new user");
-                Console.WriteLine("x to exit");
-
-                while (true)
-                {
-                    Console.Write("Enter command: ");
-                    string command = Console.ReadLine();
-
-                    switch (command.ToLower())
+                    Console.WriteLine("Admin login successful!");
+                    using (BankContext context = new BankContext())
                     {
-                        case "c":
-                            CreateUser(context);
-                            break;
-                        case "x":
-                            return;
-                        default:
-                            Console.WriteLine($"Unknown command: {command}");
-                            break;
+                        // Admin tasks code...
+                        Console.WriteLine("Current users in system: ");
+                        List<User> users = DbHelper.GetAllUsers(context);
+
+                        foreach (User user in users)
+                        {
+                            Console.WriteLine($"{user.Name}");
+                        }
+
+                        Console.WriteLine($"Total number of users = {users.Count()}");
+                        Console.WriteLine("Choose your option from the below: ");
+                        Console.WriteLine("(Please press 'c' to Create and 'x' to Exit Internet Bank.)");
+                        Console.WriteLine("\n\t\t1. Create new user");
+                        Console.WriteLine("\t\t2. Exit");
+
+                        while (true)
+                        {
+                            Console.Write("Enter command: ");
+                            string command = Console.ReadLine();
+
+                            switch (command.ToLower())
+                            {
+                                case "c":
+                                    CreateUser(context);
+                                    break;
+                                case "x":
+                                    Console.WriteLine("Exiting...");
+                                    break;
+                                default:
+                                    Console.WriteLine($"Unknown command: {command}");
+                                    break;
+                            }
+                        }
+                        //return;
                     }
                 }
-            }
+
+                else
+                {
+                    loginAttempts++;
+                    Console.WriteLine($"Incorrect password. Attempts left: {maxLoginAttempts - loginAttempts}");
+
+                    if (loginAttempts >= maxLoginAttempts)
+                    {
+                        Console.WriteLine($"Too many incorrect attempts. Please try again after {timeoutSeconds} seconds.");
+                        System.Threading.Thread.Sleep(timeoutSeconds * 1000);
+                        loginAttempts = 0; // Reset login attempts after timeout
+                    }
+                }
+            } while (loginAttempts < maxLoginAttempts);
+
         }
 
         private static void CreateUser(BankContext context)
