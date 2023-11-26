@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/InternetBank.csproj": {}
+    "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/InternetBank.csproj": {}
   },
   "projects": {
-    "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/InternetBank.csproj": {
+    "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/InternetBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/InternetBank.csproj",
+        "projectUniqueName": "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/InternetBank.csproj",
         "projectName": "InternetBank",
-        "projectPath": "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/InternetBank.csproj",
-        "packagesPath": "/Users/ashfaqul/.nuget/packages/",
-        "outputPath": "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/obj/",
+        "projectPath": "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/InternetBank.csproj",
+        "packagesPath": "/Users/Suhagan/.nuget/packages/",
+        "outputPath": "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ashfaqul/.nuget/NuGet/NuGet.Config"
+          "/Users/Suhagan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.308/RuntimeIdentifierGraph.json"
         }
       }
     }
