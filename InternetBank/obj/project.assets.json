@@ -2168,5 +2168,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

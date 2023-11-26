@@ -313,7 +313,7 @@ namespace InternetBank
 
             ShowAccountsBalance(context, user);
 
-            Console.WriteLine("\t\tEnter the account number of the account you want to deposit to: ");
+            Console.Write("\t\tEnter the account number of the account you want to deposit to: ");
             string input = Console.ReadLine();
             bool validAccountID = false;
             int fromAccID;
@@ -324,7 +324,7 @@ namespace InternetBank
             {
                 if (fromAccID == -1)
                 {
-                    Console.WriteLine("\t\tEnter a valid account number.");
+                    Console.Write("\t\tPlease, enter a valid account number and try again.");
                 }
 
                 //check if the user is the owner of the account
@@ -341,7 +341,8 @@ namespace InternetBank
 
                     if (!validAccountID)
                     {
-                        Console.WriteLine("\t\tYou are not the owner of this account. ");
+                        Console.Write("\t\tSorry. Unfortunately, you are not the owner of this account. ");
+                        Console.Write("\t\tPlease, try again...");
                     }
                 }
 
@@ -353,12 +354,13 @@ namespace InternetBank
 
             
             //Ask for amount to be transfered and check input
-            Console.WriteLine("\t\tEnter amount to deposit: ");
+            Console.Write("\t\tEnter amount to deposit: ");
             input = Console.ReadLine();
             double amount;
             while (!double.TryParse(input, out amount))
             {
-                Console.WriteLine("\t\tSomething went wrong. Enter a valid amount.");
+                Console.WriteLine("\t\tSorry, Invalid amount. Please, try again...");
+                Console.WriteLine("\t\tPlease, Enter a valid amount: ");
                 input = Console.ReadLine();
             }
             fromAccount.Balance += amount;
@@ -368,18 +370,18 @@ namespace InternetBank
             do
             {
                 ShowAccountsBalance(context, user);
-                Console.WriteLine("\t\tDo you want to deposit again? (y/n)");
+                Console.Write("\t\tDo you want to deposit again? (y/n) --> ");
                 userInput = Console.ReadKey().KeyChar;
 
                 switch (Char.ToLower(userInput))
                 {
                     case 'y':
-                        Console.WriteLine("\nProcessing deposit another deposit...");
+                        Console.WriteLine("\t\t\nProcessing another deposit...");
                         while (!Int32.TryParse(input, out fromAccID) || !validAccountID)
                         {
                             if (fromAccID == -1)
                             {
-                                Console.WriteLine("\t\tEnter a valid account number.");
+                                Console.Write("\t\t\nEnter a valid account number: ");
                             }
 
                             //check if the user is the owner of the account
