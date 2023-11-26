@@ -98,6 +98,30 @@ namespace InternetBank
             if (success)
             {
                 Console.WriteLine($"\t\t\n\t\tCreated user {username} with pin {pin}");
+
+               
+
+                Account newAccount = new Account()
+                {
+                   UserId = newUser.Id,
+                   Name = "Allkonto",
+                   Balance = 0,
+                };
+
+                bool success2 = DbHelper.AddAccount(context, newAccount);
+
+                if (success2)
+                {
+                   Console.WriteLine($"\t\t\n\t\tAlso created first Account Allkonto for the user.");
+                }
+                else
+                {
+                   Console.WriteLine($"\t\t\n\t\tFailed to create Allkonto");
+                }            
+                 
+               
+
+
                 Console.Write("\t\t\n\t\tDo you want to create more users? (y/n): ");
                 userInput = Console.ReadKey().KeyChar;
 
