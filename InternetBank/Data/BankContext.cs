@@ -16,9 +16,13 @@ namespace InternetBank.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Fill in connection string here!!
+<<<<<<< HEAD
 
             //optionsBuilder.UseSqlServer("Data Source=(localdb)\\.;Initial Catalog=Bank;Integrated Security=True;Pooling=False");
             optionsBuilder.UseSqlServer("Server=localhost,1433;Database=internetbank;User Id=sa;Password=cH@sdotnet23;TrustServerCertificate=true");
+=======
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\.;Initial Catalog=Bank;Integrated Security=True;Pooling=False");
+>>>>>>> main
 
         }
     }
