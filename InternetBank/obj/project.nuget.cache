@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "daQxZOH3/IG7g/IlxgH75tcuDiPZzcEvnawrwgtodo18u4mJaYAMGYKgko1ZWchBsmk+p2YWFFbWXnXop0ClUA==",
+  "dgSpecHash": "0GF/2A2DpZkqCJOTOuwcEQwCYvKJ2cW7F4Ir+Fr8GuHn6liDXY0NnOMcfE4CGL9pgPWMwP++j4WS1RG/mLYGVA==",
   "success": true,
   "projectFilePath": "/Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/InternetBank.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,9 @@
     "/Users/Suhagan/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/Suhagan/.nuget/packages/nuget.common/6.8.0/nuget.common.6.8.0.nupkg.sha512",
+    "/Users/Suhagan/.nuget/packages/nuget.configuration/6.8.0/nuget.configuration.6.8.0.nupkg.sha512",
+    "/Users/Suhagan/.nuget/packages/nuget.frameworks/6.8.0/nuget.frameworks.6.8.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/system.diagnostics.diagnosticsource/6.0.1/system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
@@ -48,5 +51,12 @@
     "/Users/Suhagan/.nuget/packages/system.text.encoding.codepages/4.7.0/system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "/Users/Suhagan/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
