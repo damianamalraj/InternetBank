@@ -16,8 +16,10 @@ namespace InternetBank
             using (BankContext context = new BankContext())
             {
                 Console.WriteLine("Current users in system: ");
+                
                 List<User> users = DbHelper.GetAllUsers(context);
 
+                
                 foreach (User user in users)
                 {
                     Console.WriteLine($"{user.Name}");

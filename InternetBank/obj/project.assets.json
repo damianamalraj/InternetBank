@@ -505,6 +505,40 @@
           }
         }
       },
+      "NuGet.Common/6.8.0": {
+        "type": "package",
+        "dependencies": {
+          "NuGet.Frameworks": "6.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NuGet.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NuGet.Common.dll": {}
+        }
+      },
+      "NuGet.Configuration/6.8.0": {
+        "type": "package",
+        "dependencies": {
+          "NuGet.Common": "6.8.0",
+          "System.Security.Cryptography.ProtectedData": "4.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NuGet.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NuGet.Configuration.dll": {}
+        }
+      },
+      "NuGet.Frameworks/6.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NuGet.Frameworks.dll": {}
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -683,7 +717,7 @@
       "System.Security.Cryptography.ProtectedData/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/_._": {
+          "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
             "related": ".xml"
           }
         },
@@ -1520,6 +1554,51 @@
         "version.txt"
       ]
     },
+    "NuGet.Common/6.8.0": {
+      "sha512": "voNZyM5L5s0CCDPU//vXKQke0M8y6kGvG+0Ll6gc/xV7Jh1C3/5OhHRzvekxBS6a9DO/lsFhTZtyCkL6n9lHEw==",
+      "type": "package",
+      "path": "nuget.common/6.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net472/NuGet.Common.dll",
+        "lib/netstandard2.0/NuGet.Common.dll",
+        "nuget.common.6.8.0.nupkg.sha512",
+        "nuget.common.nuspec"
+      ]
+    },
+    "NuGet.Configuration/6.8.0": {
+      "sha512": "FFEoY1L9G+C74HfSYt6epHTIuS5xJ8D+d9LZ5nnqhujMoBlQgHphaCTfRlul+e/bNIkAp1fDObzsGlPmu3CKAg==",
+      "type": "package",
+      "path": "nuget.configuration/6.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net472/NuGet.Configuration.dll",
+        "lib/netstandard2.0/NuGet.Configuration.dll",
+        "nuget.configuration.6.8.0.nupkg.sha512",
+        "nuget.configuration.nuspec"
+      ]
+    },
+    "NuGet.Frameworks/6.8.0": {
+      "sha512": "cN9NyahKgYYScioH4CKn+TYj1eSODxd0RECFnQt6ZmzT6z7PfXlbYpVzbiPsxNgY23iNDMOVkSmOqNZyYxNlQA==",
+      "type": "package",
+      "path": "nuget.frameworks/6.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net472/NuGet.Frameworks.dll",
+        "lib/netstandard2.0/NuGet.Frameworks.dll",
+        "nuget.frameworks.6.8.0.nupkg.sha512",
+        "nuget.frameworks.nuspec"
+      ]
+    },
     "System.Collections.Immutable/6.0.0": {
       "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "type": "package",
@@ -2009,7 +2088,8 @@
     "net6.0": [
       "Microsoft.EntityFrameworkCore >= 6.0.24",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.24",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.24"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.24",
+      "NuGet.Configuration >= 6.8.0"
     ]
   },
   "packageFolders": {
@@ -2063,6 +2143,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.24, )"
+          },
+          "NuGet.Configuration": {
+            "target": "Package",
+            "version": "[6.8.0, )"
           }
         },
         "imports": [

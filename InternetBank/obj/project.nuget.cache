@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "KohE2y7FUwIuec54iaYy5LgUKXa3K1/w2OE2HoxmjNEmpheqFcgufH/nMhqaKFcnQubyXJv4WqtVNFnXWUa53g==",
+=======
+  "dgSpecHash": "ibAgk4lXJtg8OfuAMrwUFqKnpcmukgAkRawKz0qio015EDXqMrkvKw2zW3tS7F/bY8mpP9G8VkhSLEghDCA/mQ==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "/Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/InternetBank.csproj",
   "expectedPackageFiles": [
@@ -33,6 +37,12 @@
     "/Users/ashfaqul/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/ashfaqul/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/Users/ashfaqul/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+<<<<<<< Updated upstream
+=======
+    "/Users/ashfaqul/.nuget/packages/nuget.common/6.8.0/nuget.common.6.8.0.nupkg.sha512",
+    "/Users/ashfaqul/.nuget/packages/nuget.configuration/6.8.0/nuget.configuration.6.8.0.nupkg.sha512",
+    "/Users/ashfaqul/.nuget/packages/nuget.frameworks/6.8.0/nuget.frameworks.6.8.0.nupkg.sha512",
+>>>>>>> Stashed changes
     "/Users/ashfaqul/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/ashfaqul/.nuget/packages/system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "/Users/ashfaqul/.nuget/packages/system.diagnostics.diagnosticsource/6.0.1/system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
