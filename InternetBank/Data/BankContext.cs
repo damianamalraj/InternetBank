@@ -19,8 +19,8 @@ namespace InternetBank.Data
 
 
             //optionsBuilder.UseSqlServer("Data Source=(localdb)\\.;Initial Catalog=Bank;Integrated Security=True;Pooling=False");
-            optionsBuilder.UseSqlServer("Server=localhost,1433;Database=internetbank;User Id=sa;Password=cH@sdotnet23;TrustServerCertificate=true");
-
+            //optionsBuilder.UseSqlServer("Server=localhost,1433;Database=internetbank;User Id=sa;Password=cH@sdotnet23;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Server=localhost,1433;Database=internetbank;User Id=sa;Password=12345OHdf%e;TrustServerCertificate=true");
 
         }
     }

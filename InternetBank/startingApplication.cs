@@ -20,18 +20,18 @@ namespace InternetBank
 
             if (userName == "admin")
             {
-                if (pin != "1234")
+                /*if (pin != "1234")
                 {
                     Console.WriteLine("\t\tSorry, Wrong password!");
                     return;
-                }
+                }*/
 
                 AdminFunctions.DoAdminTasks();
-                return;
+                
             }
             using (BankContext context = new BankContext())
             {
-
+                
                 var user = context.Users
                             .Where(x => x.Name == userName)
                             .Where(x => x.Pin == pin);
@@ -43,8 +43,6 @@ namespace InternetBank
                 }
 
             }
-
-            // Code here for user login *****
 
         }
 
