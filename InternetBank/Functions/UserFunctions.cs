@@ -334,6 +334,7 @@ namespace InternetBank
                 input = Console.ReadLine();
             }
             fromAccount.Balance += amount;
+            Console.WriteLine($"{amount} is deposited in your account.");
             context.SaveChanges();
         }
 
