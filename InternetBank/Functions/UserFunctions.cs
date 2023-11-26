@@ -21,7 +21,7 @@ namespace InternetBank
 
                 while (user != null)
                 {
-<<<<<<< HEAD
+
                 mainmenu1:
                     Console.WriteLine("\t\t\n\t\tWelcome to the Bank.");
                     Console.WriteLine("\t\t\n\t\tChoose your options from the menu below:");
@@ -35,9 +35,6 @@ namespace InternetBank
                     Console.WriteLine("\t\t-----------------------------------");
 
                     Console.Write("\t\tChoose your option from 1 to 6: ");
-=======
-                    Console.WriteLine("-----------------------------------\n1. View accounts and balance\n2. Transfer funds between accounts\n3. Withdraw\n4. Deposit\n5. Open new account\n6. Sign out\n-----------------------------------");
->>>>>>> main
                     string? command = Console.ReadLine();
                     
 
@@ -45,7 +42,7 @@ namespace InternetBank
                     {
                         case "1":
                             Console.Clear();
-<<<<<<< HEAD
+
                             
                             Console.WriteLine("\t\t1. View Accounts and Balances: ");
                             ShowAccountsBalance(context, user);
@@ -55,14 +52,11 @@ namespace InternetBank
                                 goto mainmenu1;
                             }
                             
-=======
-                            ShowAccountsBalance(context, user);
->>>>>>> main
                             break;
 
                         case "2":
                             Console.Clear();
-<<<<<<< HEAD
+
                             Console.WriteLine("\t\t2. Deposit Amount: ");
                             DepositMoney(context, user);
 
@@ -73,10 +67,6 @@ namespace InternetBank
                             }
                             break;
                             
-=======
-                            TransferFunds(context, user);
-                            break;
->>>>>>> main
 
                         case "3":
                             Console.Clear();
@@ -84,24 +74,18 @@ namespace InternetBank
                             break;
                         case "4":
                             Console.Clear();
-<<<<<<< HEAD
+
                             TransferFunds(context, user);
                             break;
-=======
-                            DepositMoney(context, user);
-                            break; ;
->>>>>>> main
                         case "5":
                             Console.Clear();
                             CreateAccount(context, user);
                             break;
                         case "6":
                             Console.Clear();
-<<<<<<< HEAD
+
                             startingApplication.startProgram();
                             //goto mainmenu1;
-=======
->>>>>>> main
                             return;
                         default:
                             Console.WriteLine($"Unknown command: {command}");
@@ -119,24 +103,17 @@ namespace InternetBank
 
             foreach (var account in accounts)
             {
-<<<<<<< HEAD
                 Console.WriteLine("\t\tHere are some details about your account(s).");
                 Console.WriteLine($"\t\tAccountnumber : {account.Id} | AccountName :  {account.Name} | Balance : {account.Balance}");
-=======
-                Console.WriteLine($"Accountnumber : {account.Id} | AccountName :  {account.Name} | Balance : {account.Balance}");
->>>>>>> main
             }
         }
 
         private static void CreateAccount(BankContext context, User user)
         {
-<<<<<<< HEAD
+
             Console.WriteLine("\t\t5. Open New Account");
             Console.Write("\t\tEnter Account name: ");
-=======
-            Console.WriteLine("Create Account");
-            Console.Write("Enter Account name: ");
->>>>>>> main
+
             string accountName = Console.ReadLine();
 
             Account newAccount = new Account()
@@ -150,19 +127,12 @@ namespace InternetBank
 
             if (success)
             {
-<<<<<<< HEAD
                 Console.WriteLine($"\t\tThank you. Your new account {accountName} has been created.");
             }
             else
             {
                 Console.WriteLine($"\t\tSorry, we are unable to open new account '{accountName}' this time.");
-=======
-                Console.WriteLine($"Created Account {accountName}");
-            }
-            else
-            {
-                Console.WriteLine($"Failed to create Account with accountName {accountName}");
->>>>>>> main
+
             }
 
         }
@@ -280,11 +250,8 @@ namespace InternetBank
             //Transaction transferBetweenAccounts = new Transaction(fromAccID, toAccID, amount, message);
         }
 
-<<<<<<< HEAD
+
         //Method for withdrawing money /Stina Hedman; 
-=======
-        //Method for withdrawing money /Stina Hedman
->>>>>>> main
         public static void WithdrawMoney(BankContext context, User user)
         {
 
@@ -293,11 +260,8 @@ namespace InternetBank
 
             ShowAccountsBalance(context, user);
 
-<<<<<<< HEAD
+
             Console.WriteLine("Enter the account number that you wish to withdraw from: ");
-=======
-            Console.WriteLine("Enter the account number that you wish to withdraw from:");
->>>>>>> main
             string input = Console.ReadLine();
             bool validAccountID = false;
             int fromAccID;
@@ -354,27 +318,20 @@ namespace InternetBank
 
         }
 
-<<<<<<< HEAD
+
         //Method for depositing money to account /Stina Hedman; updated by Ashfaqul
         public static void DepositMoney(BankContext context, User user)
         {
             char userInput;
-=======
-        //Method for depositing money to account /Stina Hedman
-        public static void DepositMoney(BankContext context, User user)
-        {
->>>>>>> main
 
             var accounts = context.Accounts
                 .Where(x => x.User.Id == user.Id);
 
             ShowAccountsBalance(context, user);
 
-<<<<<<< HEAD
+
             Console.Write("\t\tEnter the account number of the account you want to deposit to: ");
-=======
-            Console.WriteLine("Enter the account number of the account you want to deposit to: ");
->>>>>>> main
+
             string input = Console.ReadLine();
             bool validAccountID = false;
             int fromAccID;
@@ -385,11 +342,8 @@ namespace InternetBank
             {
                 if (fromAccID == -1)
                 {
-<<<<<<< HEAD
+
                     Console.Write("\t\tPlease, enter a valid account number and try again.");
-=======
-                    Console.WriteLine("Enter a valid account number.");
->>>>>>> main
                 }
 
                 //check if the user is the owner of the account
@@ -406,12 +360,9 @@ namespace InternetBank
 
                     if (!validAccountID)
                     {
-<<<<<<< HEAD
+
                         Console.Write("\t\tSorry. Unfortunately, you are not the owner of this account. ");
                         Console.Write("\t\tPlease, try again...");
-=======
-                        Console.WriteLine("You are not the owner of this account. ");
->>>>>>> main
                     }
                 }
 
@@ -421,19 +372,15 @@ namespace InternetBank
                 }
             }
 
-<<<<<<< HEAD
+
             
             //Ask for amount to be transfered and check input
             Console.Write("\t\tEnter amount to deposit: ");
-=======
-            //Ask for amount to be transfered and check input
-            Console.WriteLine("Enter amount to deposit: ");
->>>>>>> main
             input = Console.ReadLine();
             double amount;
             while (!double.TryParse(input, out amount))
             {
-<<<<<<< HEAD
+
                 Console.WriteLine("\t\tSorry, Invalid amount. Please, try again...");
                 Console.WriteLine("\t\tPlease, Enter a valid amount: ");
                 input = Console.ReadLine();
@@ -506,13 +453,6 @@ namespace InternetBank
 
             } while (Char.ToLower(userInput) != 'n');
 
-=======
-                Console.WriteLine("Something went wrong. Enter a valid amount.");
-                input = Console.ReadLine();
-            }
-            fromAccount.Balance += amount;
-            Console.WriteLine($"{amount} is deposited in your account.");
->>>>>>> main
             context.SaveChanges();
         }
 

@@ -15,7 +15,7 @@ namespace InternetBank
         {
             using (BankContext context = new BankContext())
             {
-<<<<<<< HEAD
+
                 char userInput;
 
                 Console.WriteLine("\t\t\n\t\tHello !! You are an administrator and you have the right to create users: ");
@@ -41,28 +41,12 @@ namespace InternetBank
                 while (true)
                 {
                     Console.Write("\t\t\n\t\tEnter your choice between 1 and 2: ");
-=======
-                Console.WriteLine("Current users in system: ");
-                List<User> users = DbHelper.GetAllUsers(context);
 
-                foreach (User user in users)
-                {
-                    Console.WriteLine($"{user.Name}");
-                }
-
-                Console.WriteLine($"Total number of users = {users.Count()}");
-                Console.WriteLine("c to create new user");
-                Console.WriteLine("x to exit");
-
-                while (true)
-                {
-                    Console.Write("Enter command: ");
->>>>>>> main
                     string command = Console.ReadLine();
 
                     switch (command.ToLower())
                     {
-<<<<<<< HEAD
+
                         case "1":
                             CreateUser(context);
                             break;
@@ -89,15 +73,7 @@ namespace InternetBank
                             return;
                         default:
                             Console.WriteLine($"\t\t\n\t\tUnknown command: {command}");
-=======
-                        case "c":
-                            CreateUser(context);
-                            break;
-                        case "x":
-                            return;
-                        default:
-                            Console.WriteLine($"Unknown command: {command}");
->>>>>>> main
+
                             break;
                     }
                 }
@@ -106,16 +82,13 @@ namespace InternetBank
 
         private static void CreateUser(BankContext context)
         {
-<<<<<<< HEAD
+
             char userInput;
             Console.WriteLine("\t\t\n\t\t1. Create user");
 
             createUser:
             Console.Write("\t\t\n\t\tEnter Username: ");
-=======
-            Console.WriteLine("Create user");
-            Console.Write("Enter user name: ");
->>>>>>> main
+
             string username = Console.ReadLine();
 
             Random random = new Random();
@@ -130,7 +103,7 @@ namespace InternetBank
 
             if (success)
             {
-<<<<<<< HEAD
+
                 Console.WriteLine($"\t\t\n\t\tCreated user {username} with pin {pin}");
 
                
@@ -140,22 +113,14 @@ namespace InternetBank
                    UserId = newUser.Id,
                    Name = "Allkonto",
                    Balance = 0,
-=======
-                Console.WriteLine($"Created user {username} with pin {pin}");
 
-                Account newAccount = new Account()
-                {
-                    UserId = newUser.Id,
-                    Name = "Allkonto",
-                    Balance = 0,
->>>>>>> main
                 };
 
                 bool success2 = DbHelper.AddAccount(context, newAccount);
 
                 if (success2)
                 {
-<<<<<<< HEAD
+
                    Console.WriteLine($"\t\t\n\t\tAlso created first Account Allkonto for the user.");
                 }
                 else
@@ -181,23 +146,15 @@ namespace InternetBank
                         Console.WriteLine("t\t\n\t\tInvalid input. Please enter 'y' or 'n'.");
                         break;
 
-=======
-                    Console.WriteLine($"Created Account Allkonto");
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to create Allkonto");
->>>>>>> main
+
                 }
             }
             else
             {
-<<<<<<< HEAD
+
                 Console.WriteLine($"\t\t\n\t\tFailed to create user with username {username}");
                 return;
-=======
-                Console.WriteLine($"Failed to create user with username {username}");
->>>>>>> main
+
             }
         }
 
