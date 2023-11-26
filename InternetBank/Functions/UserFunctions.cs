@@ -21,8 +21,10 @@ namespace InternetBank
 
                 while (user != null)
                 {
-                    mainmenu1:
-                    Console.WriteLine("\t\t-----------------------------------");
+                mainmenu1:
+                    Console.WriteLine("\t\t\n\t\tWelcome to the Bank.");
+                    Console.WriteLine("\t\t\n\t\tChoose your options from the menu below:");
+                    Console.WriteLine("\t\t\n\t\t-----------------------------------");
                     Console.WriteLine("\t\t1. View Accounts and Balances");
                     Console.WriteLine("\t\t2. Deposit Amount");
                     Console.WriteLine("\t\t3. Withdraw Amount");
@@ -54,6 +56,7 @@ namespace InternetBank
                             Console.Clear();
                             Console.WriteLine("\t\t2. Deposit Amount: ");
                             DepositMoney(context, user);
+
                             Console.Write("\t\tPress ENTER to go to main menu...");
                             while (Console.ReadKey().Key == ConsoleKey.Enter)
                             {
@@ -76,6 +79,8 @@ namespace InternetBank
                             break;
                         case "6":
                             Console.Clear();
+                            startingApplication.startProgram();
+                            //goto mainmenu1;
                             return;
                         default:
                             Console.WriteLine($"Unknown command: {command}");
