@@ -11,15 +11,14 @@ namespace InternetBank
 {
     internal static class UserFunctions
     {
-        public static void DoUserTasks(string userName)
+        public static void DoUserTasks(string userName, BankContext context)
         {
-            using (BankContext context = new BankContext())
-            {
-                var user = context.Users
-                            .Where(x => x.Name == userName)
-                            .FirstOrDefault();
+            var user = context.Users.FirstOrDefault(x => x.Name == userName);
 
-                while (user != null)
+            if (user != null)
+            {
+
+                while (true)
                 {
 
                 mainmenu1:

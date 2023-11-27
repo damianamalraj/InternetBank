@@ -13,8 +13,6 @@ namespace InternetBank.Models
         public string Pin { get; set; }
         // public bool isAdmin { get; set; }
 
-        //public int RoleId { get; set; } // 1 for User, 2 for Admin, 3 for user+admin
-
         public virtual ICollection<Account> Accounts { get; set; }
     }
 }
