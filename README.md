@@ -1,14 +1,13 @@
 # Bank Management System: Internet Bank
 
 Contributors:
-´´´
+
 1. Damian Alam Raj
 2. Stina Hedman
 3. Suhagan Mostahid
 4. Axel Jonsson
 5. Ashfaqul Awal
 
-´´´
 
 ## Overview
 
