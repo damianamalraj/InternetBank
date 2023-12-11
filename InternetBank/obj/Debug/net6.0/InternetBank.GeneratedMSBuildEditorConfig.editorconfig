@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InternetBank
+<<<<<<< HEAD
 build_property.ProjectDir = /Users/ashfaqul/Desktop/NET-23 Ashfaqul/C-sharp/InternetBank/InternetBank/InternetBank/
+=======
+build_property.ProjectDir = /Users/Suhagan/Desktop/NET23/InternetBank/Untitled/InternetBank/
+>>>>>>> cf40f440b56918abf2c016e4a64259a5f199062c
