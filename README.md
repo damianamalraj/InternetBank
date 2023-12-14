@@ -2,7 +2,7 @@
 
 Contributors:
 
-1. Damian Alam Raj
+1. Damian Alamraj
 2. Stina Hedman
 3. Suhagan Mostahid
 4. Axel Jonsson
